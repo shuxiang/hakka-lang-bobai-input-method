@@ -1,7 +1,7 @@
 
 # :four_leaf_clover:博白客语拼音输入法
 
-博白客语拼音输入法是由作者本人`shuxiang` 哔哩哔哩账号 [shuxiang29](https://space.bilibili.com/23428735) 制作完成
+博白客语拼音输入法是由作者本人`shuxiang` 哔哩哔哩账号 [shuxiang](https://space.bilibili.com/23428735) 制作完成
 
 客语拼音主要来自本人的客语注音项目 [博白客语拼音方案](https://github.com/shuxiang/hakka-lang-bobai)
 
@@ -16,6 +16,8 @@
 
 
 
+
+------------------------------------------------- 以下内容不用看 ------------------------------------------------------
 
 
 ## 简介
