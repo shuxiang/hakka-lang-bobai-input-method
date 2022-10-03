@@ -1,14 +1,21 @@
-你是否经历过搜狗输入法总是闪退bug的绝望？
 
-你是否经历过 fcitx 自带输入法的词库简陋？
+# :four_leaf_clover:博白客语拼音输入法
 
-你是否经历过在 linux 中尝试各种输入法都不理想呢？
+博白客语拼音输入法是由作者本人`shuxiang` 哔哩哔哩账号 [shuxiang29](https://space.bilibili.com/23428735) 制作完成
 
-这里是帮你脱离苦海的地方。
+客语拼音主要来自本人的客语注音项目 [博白客语拼音方案](https://github.com/shuxiang/hakka-lang-bobai)
 
-<!--more-->
+该拼音输入法在[四叶草输入法](https://github.com/fkxxyz/rime-cloverpinyin)的基础上制作而成.
 
-# :four_leaf_clover:四叶草拼音输入方案
+
+## 使用方法
+1. 安装rime输入法
+2. 下载release包, 解压到rime输入法的配置目录
+3. 设置rime "输入法设置" 选项为 "四叶草博白话简体拼音"
+4. 点击rime "重新部署" 选项即可
+
+
+
 
 
 ## 简介
@@ -123,6 +130,8 @@ ver 表示版本号，例如 1.1.2
 
 当然你也可以直接[联系我](https://www.fkxxyz.com/about/#%E5%85%B3%E4%BA%8E%E6%88%91)本人。
 
+
+## nonsense
 sudo apt-get install fcitx-rime
 sudo apt-get install ibus-rime
 
