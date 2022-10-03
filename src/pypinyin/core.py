@@ -59,7 +59,7 @@ class Pinyin(object):
         self._converter = converter or DefaultConverter()
 
     def pinyin(self, hans, style=Style.TONE, heteronym=False,
-               errors='default', strict=True, **kwargs):
+               errors='default', strict=True,  use_phrases=True, **kwargs):
         """将汉字转换为拼音，返回汉字的拼音列表。
 
         :param hans: 汉字字符串( ``'你好吗'`` )或列表( ``['你好', '吗']`` ).
@@ -103,11 +103,11 @@ class Pinyin(object):
         for words in han_list:
             pys.extend(
                 self._converter.convert(
-                    words, style, heteronym, errors, strict=strict))
+                    words, style, heteronym, errors, strict=strict, use_phrases=use_phrases))
         return pys
 
     def lazy_pinyin(self, hans, style=Style.NORMAL,
-                    errors='default', strict=True, **kwargs):
+                    errors='default', strict=True,  use_phrases=True, **kwargs):
         """将汉字转换为拼音，返回不包含多音字结果的拼音列表.
 
         与 :py:func:`~pypinyin.pinyin` 的区别是每个汉字的拼音是个字符串，
@@ -223,7 +223,7 @@ def phrase_pinyin(phrase, style, heteronym, errors='default', strict=True):
 
 def pinyin(hans, style=Style.TONE, heteronym=False,
            errors='default', strict=True,
-           v_to_u=False, neutral_tone_with_five=False):
+           v_to_u=False, neutral_tone_with_five=False, use_phrases=True, ):
     """将汉字转换为拼音，返回汉字的拼音列表。
 
     :param hans: 汉字字符串( ``'你好吗'`` )或列表( ``['你好', '吗']`` ).
@@ -277,7 +277,7 @@ def pinyin(hans, style=Style.TONE, heteronym=False,
     _pinyin = Pinyin(UltimateConverter(
         v_to_u=v_to_u, neutral_tone_with_five=neutral_tone_with_five))
     return _pinyin.pinyin(
-        hans, style=style, heteronym=heteronym, errors=errors, strict=strict)
+        hans, style=style, heteronym=heteronym, errors=errors, strict=strict, use_phrases=use_phrases)
 
 
 def slug(hans, style=Style.NORMAL, heteronym=False, separator='-',
@@ -325,7 +325,7 @@ def slug(hans, style=Style.NORMAL, heteronym=False, separator='-',
 
 
 def lazy_pinyin(hans, style=Style.NORMAL, errors='default', strict=True,
-                v_to_u=False, neutral_tone_with_five=False, tone_sandhi=False):
+                v_to_u=False, neutral_tone_with_five=False, tone_sandhi=False, use_phrases=True):
     """将汉字转换为拼音，返回不包含多音字结果的拼音列表.
 
     与 :py:func:`~pypinyin.pinyin` 的区别是返回的拼音是个字符串，

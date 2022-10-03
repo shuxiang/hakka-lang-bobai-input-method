@@ -17,7 +17,7 @@ TNoPinyinResult = Union[TPinyinResult, List[Text], Text, None]
 
 class Converter(object):
     def convert(self, words: Text, style: TStyle, heteronym: bool,
-                errors: TErrors, strict: bool = ...,
+                errors: TErrors, strict: bool = ..., use_phrases:bool = ..., 
                 **kwargs: Any) -> TPinyinResult: ...
 
 
@@ -25,7 +25,7 @@ class DefaultConverter(Converter):
     def __init__(self, **kwargs: Any) -> None: ...
 
     def convert(self, words: Text, style: TStyle, heteronym: bool,
-                errors: TErrors, strict: bool = ...,
+                errors: TErrors, strict: bool = ..., use_phrases:bool=..., 
                 **kwargs: Any) -> TPinyinResult: ...
 
     def pre_convert_style(self, han: Text, orig_pinyin: Text, style: TStyle,
@@ -86,7 +86,7 @@ class UltimateConverter(DefaultConverter):
         ...
 
     def convert(self, words: Text, style: TStyle, heteronym: bool,
-                errors: TErrors, strict: bool = ...,
+                errors: TErrors, strict: bool = ..., use_phrases:bool=..., 
                 **kwargs: Any) -> TPinyinResult: ...
 
     def pre_convert_style(self, han: Text, orig_pinyin: Text, style: TStyle,

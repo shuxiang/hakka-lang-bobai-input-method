@@ -64,7 +64,8 @@ def pinyin(hans: Union[List[Text], Text],
            errors: TErrors = ...,
            strict: bool = ...,
            v_to_u: bool = ...,
-           neutral_tone_with_five: bool = ...
+           neutral_tone_with_five: bool = ...,
+            use_phrases:bool=..., 
            ) -> List[List[Text]]: ...
 
 
@@ -83,7 +84,8 @@ def lazy_pinyin(hans: Union[List[Text], Text],
                 strict: bool = ...,
                 v_to_u: bool = ...,
                 neutral_tone_with_five: bool = ...,
-                tone_sandhi: bool = ...
+                tone_sandhi: bool = ...,
+                use_phrases=True, 
                 ) -> List[Text]: ...
 
 
@@ -97,6 +99,7 @@ class Pinyin(object):
                heteronym: bool = ...,
                errors: TErrors = ...,
                strict: bool = ...,
+               use_phrases:bool=..., 
                **kwargs: Any
                ) -> TPinyinResult: ...
 
@@ -104,6 +107,7 @@ class Pinyin(object):
                     style: TStyle = ...,
                     errors: TErrors = ...,
                     strict: bool = ...,
+                    use_phrases:bool=..., 
                     **kwargs: Any
                     ) -> List[Text]: ...
 

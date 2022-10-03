@@ -16,10 +16,10 @@ initials_set = set(pypinyin.style._constants._INITIALS)   # 声母表
 initials_set.add('ng')
 initials_set.add('v')
 
-# 修复一些多音字错误
-pypinyin.load_phrases_dict({
-    #'还珠格格': [['huán'], ['zhū'], ['gé'], ['gé']]
-    })
+# # 修复一些多音字错误
+# pypinyin.load_phrases_dict({
+#     #'还珠格格': [['huán'], ['zhū'], ['gé'], ['gé']]
+#     })
 
 
 
@@ -221,7 +221,7 @@ class DictGenerator:
         text_phrase = ''
         for phrase_st in phrase_list:
             # 通过 pypinyin 库获取到词组的拼音
-            phrase_pinyin = map(self.fixPinyin, pypinyin.lazy_pinyin(phrase_st[0]))
+            phrase_pinyin = map(self.fixPinyin, pypinyin.lazy_pinyin(phrase_st[0], use_phrases=False))
             text_phrase += phrase_st[0] + '\t' + \
                 ' '.join(phrase_pinyin) + '\t' + \
                 str(phrase_st[1]) + '\n'

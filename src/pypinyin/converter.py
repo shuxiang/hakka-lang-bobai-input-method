@@ -21,7 +21,7 @@ auto_discover()
 
 class Converter(object):
 
-    def convert(self, words, style, heteronym, errors, strict, **kwargs):
+    def convert(self, words, style, heteronym, errors, strict, use_phrases=True, **kwargs):
         # TODO: use ``abc`` module
         raise NotImplementedError  # pragma: no cover
 
@@ -30,7 +30,7 @@ class DefaultConverter(Converter):
     def __init__(self, **kwargs):
         pass
 
-    def convert(self, words, style, heteronym, errors, strict, **kwargs):
+    def convert(self, words, style, heteronym, errors, strict, use_phrases=True, **kwargs):
         """根据参数把汉字转成相应风格的拼音结果。
 
         :param words: 汉字字符串
@@ -51,7 +51,7 @@ class DefaultConverter(Converter):
         # 初步过滤没有拼音的字符
         if RE_HANS.match(words):
             pys = self._phrase_pinyin(words, style=style, heteronym=heteronym,
-                                      errors=errors, strict=strict)
+                                      errors=errors, strict=strict, use_phrases=use_phrases)
             post_data = self.post_pinyin(words, heteronym, pys)
             if post_data is not None:
                 pys = post_data
@@ -239,7 +239,7 @@ class DefaultConverter(Converter):
         """
         pass
 
-    def _phrase_pinyin(self, phrase, style, heteronym, errors, strict):
+    def _phrase_pinyin(self, phrase, style, heteronym, errors, strict, use_phrases=True):
         """词语拼音转换.
 
         :param phrase: 词语
@@ -249,9 +249,10 @@ class DefaultConverter(Converter):
                        详见 :ref:`strict`
         :return: 拼音列表
         :rtype: list
+        :use_phrases 使用系统词组 True
         """
         pinyin_list = []
-        if phrase in PHRASES_DICT:
+        if use_phrases and phrase in PHRASES_DICT:
             pinyin_list = deepcopy(PHRASES_DICT[phrase])
         else:
             for han in phrase:
