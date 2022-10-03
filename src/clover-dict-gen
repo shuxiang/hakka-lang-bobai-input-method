@@ -16,10 +16,10 @@ initials_set = set(pypinyin.style._constants._INITIALS)   # 声母表
 initials_set.add('ng')
 initials_set.add('v')
 
-# # 修复一些多音字错误
-# pypinyin.load_phrases_dict({
-#     #'还珠格格': [['huán'], ['zhū'], ['gé'], ['gé']]
-#     })
+# 修复一些多音字错误
+pypinyin.load_phrases_dict({
+    #'还珠格格': [['huán'], ['zhū'], ['gé'], ['gé']]
+    })
 
 
 
