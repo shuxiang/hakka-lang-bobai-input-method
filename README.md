@@ -126,3 +126,5 @@ ver 表示版本号，例如 1.1.2
 sudo apt-get install fcitx-rime
 sudo apt-get install ibus-rime
 
+-- to poem; bobai fix2 export opensource project; python3 test.py; ctrl h -> "(0x[a-z0-9]+)": $1:; pinyin_dict to src/pypinyin/pinyin_dict.py
+-- to rime-cloverpinyin; ./build; ./pack 0.003; sh to_clover.sh; restart 小狼毫
