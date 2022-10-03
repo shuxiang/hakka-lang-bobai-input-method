@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- encoding:utf-8 -*-
 
 import jieba
@@ -14,10 +14,11 @@ pinyin_dict = pypinyin.pinyin_dict.pinyin_dict
 replace_symbol_to_no_symbol = pypinyin.style._utils.replace_symbol_to_no_symbol
 initials_set = set(pypinyin.style._constants._INITIALS)   # 声母表
 initials_set.add('ng')
+initials_set.add('v')
 
 # 修复一些多音字错误
 pypinyin.load_phrases_dict({
-    '还珠格格': [['huán'], ['zhū'], ['gé'], ['gé']]
+    #'还珠格格': [['huán'], ['zhū'], ['gé'], ['gé']]
     })
 
 
@@ -31,15 +32,15 @@ class DictGenerator:
                 而汉字中比如 “嗯” 的拼音是 n 和 ng
                 通常输入法会让 “嗯” 的拼音为 en
         """
-        if pinyin in initials_set:
-            if pinyin == 'n':
-                pinyin = 'en'
-            elif pinyin == 'm':
-                pinyin = 'mu'
-            elif pinyin == 'ng':
-                pinyin = 'en'
-            else:
-                return None  # 不允许出现单声母的拼音
+        # if pinyin in initials_set:
+        #     if pinyin == 'n':
+        #         pinyin = 'en'
+        #     elif pinyin == 'm':
+        #         pinyin = 'mu'
+        #     elif pinyin == 'ng':
+        #         pinyin = 'en'
+        #     else:
+        #         return None  # 不允许出现单声母的拼音
         return pinyin
 
     def __init__(self):
@@ -64,9 +65,10 @@ class DictGenerator:
         def symbol2fixPinyin(pinyin):
             pinyin = replace_symbol_to_no_symbol(pinyin)
             fixed_pinyin = self.fixPinyin(pinyin)
-            if fixed_pinyin is None or fixed_pinyin in initials_set:
-                print(pinyin)
-                assert False  # 库的拼音不规范，需要手动规范化
+            # 客语允许只有字母的情况, 普通话不允许
+            # if fixed_pinyin is None or fixed_pinyin in initials_set:
+            #     print(pinyin)
+            #     assert False  # 库的拼音不规范，需要手动规范化
             return fixed_pinyin
         self.word_pinyin_s = {i:
             list(map(symbol2fixPinyin, pinyin_dict[i].split(',')))

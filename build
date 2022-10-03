@@ -120,10 +120,12 @@ cat "$SHELL_FOLDER/src/file_list.txt" | while read line; do
 	if [ $dst ]; then
 		rm -rf "$dst-$commit" "$dst"
 		echo $name
+		## 不再解压
 		extract "$name" || exit
 		mv "$dst-$commit" "$dst" || exit
 	fi
 done
+
 extract 360万中文词库+词性+词频.zip || exit
 ln -sf rime-essay/essay.txt essay.txt || exit
 ln -sf rime-pinyin-simp/pinyin_simp.dict.yaml pinyin_simp.dict.yaml || exit
@@ -160,6 +162,7 @@ cp ../cache/rime-emoji/opencc/* opencc
 cp ../cache/rime-symbols/opencc/* opencc
 
 echo 开始构建部署二进制
+# cd data dir
 rime_deployer --compile clover.schema.yaml . /usr/share/rime-data || exit
 rm -rf build/*.txt
 

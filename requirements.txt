@@ -1,0 +1,7 @@
+requests 
+jieba
+pypinyin
+opencc
+
+# sudo apt install opencc
+# sudo apt-get install librime1 librime-dev

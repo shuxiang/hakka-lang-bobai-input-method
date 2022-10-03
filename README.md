@@ -123,3 +123,6 @@ ver 表示版本号，例如 1.1.2
 
 当然你也可以直接[联系我](https://www.fkxxyz.com/about/#%E5%85%B3%E4%BA%8E%E6%88%91)本人。
 
+sudo apt-get install fcitx-rime
+sudo apt-get install ibus-rime
+
