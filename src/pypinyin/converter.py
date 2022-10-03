@@ -21,7 +21,7 @@ auto_discover()
 
 class Converter(object):
 
-    def convert(self, words, style, heteronym, errors, strict, use_phrases=True, **kwargs):
+    def convert(self, words, style, heteronym, errors, strict, use_phrases=False, **kwargs):
         # TODO: use ``abc`` module
         raise NotImplementedError  # pragma: no cover
 
@@ -30,7 +30,7 @@ class DefaultConverter(Converter):
     def __init__(self, **kwargs):
         pass
 
-    def convert(self, words, style, heteronym, errors, strict, use_phrases=True, **kwargs):
+    def convert(self, words, style, heteronym, errors, strict, use_phrases=False, **kwargs):
         """根据参数把汉字转成相应风格的拼音结果。
 
         :param words: 汉字字符串
@@ -239,7 +239,7 @@ class DefaultConverter(Converter):
         """
         pass
 
-    def _phrase_pinyin(self, phrase, style, heteronym, errors, strict, use_phrases=True):
+    def _phrase_pinyin(self, phrase, style, heteronym, errors, strict, use_phrases=False):
         """词语拼音转换.
 
         :param phrase: 词语

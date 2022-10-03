@@ -85,7 +85,7 @@ def lazy_pinyin(hans: Union[List[Text], Text],
                 v_to_u: bool = ...,
                 neutral_tone_with_five: bool = ...,
                 tone_sandhi: bool = ...,
-                use_phrases=True, 
+                use_phrases: bool=..., 
                 ) -> List[Text]: ...
 
 

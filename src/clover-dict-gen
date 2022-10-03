@@ -245,11 +245,11 @@ def main(args):
         def process(self, count, total):
             print(self.msg % (count, total))
 
-    # 合并 360万 的词库
-    text = open('词典360万（个人整理）.txt', 'r', encoding = 'utf-8').read()
-    r = generator.mergeDict(text, 1, args.minfreq, 100000,
-        PrintProcess('正在合并360万中文词库 (%s/%s)').process)
-    print('成功合并360万中文词库 %s 个汉字， %s 个词组。' % r)
+    # # 合并 360万 的词库
+    # text = open('词典360万（个人整理）.txt', 'r', encoding = 'utf-8').read()
+    # r = generator.mergeDict(text, 1, args.minfreq, 100000,
+    #     PrintProcess('正在合并360万中文词库 (%s/%s)').process)
+    # print('成功合并360万中文词库 %s 个汉字， %s 个词组。' % r)
 
     # 合并 rime 自带的八股文，权值 60
     text = open('essay.txt', 'r', encoding = 'utf-8').read()
@@ -257,12 +257,12 @@ def main(args):
         PrintProcess('正在合并八股文 (%s/%s)').process)
     print('成功合并八股文 %s 个汉字， %s 个词组。' % r)
 
-    # 合并袖珍简化字拼音的词库，权值 60
-    text = open('pinyin_simp.dict.yaml', 'r', encoding = 'utf-8').read(
-        ).replace('罗嗦', '啰嗦')
-    r = generator.mergeDict(text, 60, 0, 100000,
-        PrintProcess('正在合并袖珍简化字拼音的词库 (%s/%s)').process)
-    print('成功合并袖珍简化字拼音 %s 个汉字， %s 个词组。' % r)
+    # # 合并袖珍简化字拼音的词库，权值 60
+    # text = open('pinyin_simp.dict.yaml', 'r', encoding = 'utf-8').read(
+    #     ).replace('罗嗦', '啰嗦')
+    # r = generator.mergeDict(text, 60, 0, 100000,
+    #     PrintProcess('正在合并袖珍简化字拼音的词库 (%s/%s)').process)
+    # print('成功合并袖珍简化字拼音 %s 个汉字， %s 个词组。' % r)
 
     # 合并转换符号词汇
     text = open('symbols.txt', 'r', encoding = 'utf-8').read()
